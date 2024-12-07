@@ -1,0 +1,16 @@
+body {
+    font-family: Brush Script MT, cursive;
+    font-size: large;
+    margin: 72px;
+    text-align: center;
+  }
+  
+  p {
+    color: darkmagenta;
+    cursor: pointer;
+  }
+  
+  p:hover {
+    color:green;
+    cursor: pointer;
+  }

@@ -1,0 +1,374 @@
+***************************
+Exercício 1
+***************************
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 1 - Alterar Cor de Fundo com um Botão</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" id="mudarCorFundo">Clique aqui para ver a mágica!</button>
+  <script src="funcoes.js"></script>
+</body>
+</html>
+******************************
+JS
+
+document.getElementById("mudarCorFundo").addEventListener("click", () => {
+  const body = document.body;
+
+  function gerarCorAleatoria() {
+    const letras = "0123456789abcdef";
+    let cor = "#";
+    for (let i = 0; i < 6; i++) {
+      cor += letras[Math.floor(Math.random() * 16)];
+    }
+    return cor;
+  }
+
+  body.style.backgroundColor = gerarCorAleatoria();
+});
+******************************
+CSS
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    place-items: center;
+  }
+  
+  button {
+    padding: 15px 30px;
+    font-size: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8c4caf;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    
+  }
+
+***************************
+Exercício 2
+***************************
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercicio 2 - Lista Interativa com Itens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>
+    <br>
+    Faça aqui a sua lista:
+  </h2>
+  <input type="text" id="novoItem" placeholder="Digite um novo item">
+  <button onclick="adicionarItem()">Adicionar à lista</button>
+  <ul id="itemLista"></ul>
+  <script src="funcoes.js"></script>
+</body>
+</html>
+
+******************************
+JS
+
+function adicionarItem() {
+  const newItemInput = document.getElementById("novoItem");
+  const itemList = document.getElementById("itemLista"); // Corrected ID
+
+  if (newItemInput && itemList) { // Check if elements exist
+    const newItemText = newItemInput.value;
+
+    if (newItemText !== "") {
+      const newListItem = document.createElement("lista"); // Use 'li' for list items
+      newListItem.textContent = newItemText;
+      itemList.appendChild(newListItem);
+      newItemInput.value = "";
+    }
+  }
+}
+
+******************************
+CSS
+
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 20px;
+    place-items: center;
+  }
+  
+  button {
+    padding: 15px 30px;
+    font-size: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8c4caf;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    
+  }
+
+  ul {
+    margin: 10px;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+    ul lista {    
+    padding: 10px;
+    margin: 10px;
+    background: lightpink;
+    color: purple;
+    list-style-type: circle;
+    list-style-position: inside;
+
+  }
+
+
+***************************
+Exercício 3
+***************************
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercício 3 - Mostrar ou Ocultar Texto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="mostrarOcultar">Mostrar</button>
+    <br>
+    <p id="texto" style="display: none;">A presença de um gato em casa pode trazer inúmeros benefícios.<br> 
+      Estudos sugerem que a interação com felinos pode reduzir a pressão arterial, <br> diminuir o estresse 
+      e até mesmo aumentar a sensação de bem-estar.<br> Além disso, os gatos são excelentes observadores e 
+      podem perceber quando <br> seus tutores precisam de carinho e atenção. Em resumo, os gatos são muito <br> 
+      mais do que apenas animais de estimação: são amigos, confidentes e membros da família, <br> 
+      capazes de trazer alegria e amor para nossas vidas.<br><br></p>      
+    <script src="funcoes.js"></script>
+    <img src="gatinho.jpg" alt="Gatinho fofinho" width="400" height="300">
+</body>
+</html>
+
+
+******************************
+JS
+
+const botao = document.getElementById("mostrarOcultar");
+const texto = document.getElementById("texto");
+
+botao.addEventListener("click", () => {
+    if (texto.style.display === "none") {
+        texto.style.display = "block";
+        botao.textContent = "Ocultar";
+    } else {
+        texto.style.display = "none";
+        botao.textContent = "Mostrar";
+    }
+});
+
+******************************
+CSS
+
+body {
+  font-family: Monaco, monospace;
+  font-size: large;
+  margin: 5px;
+  text-align: center;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8c4caf;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    
+  }
+
+
+***************************
+Exercício 4
+***************************
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 4 - Mudar a Cor de um Texto ao Passar o Mouse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p>A inteligência e a curiosidade dos gatos são notáveis.
+    Eles são capazes de aprender <br> truques, resolver pequenos 
+    desafios e interagir com seus humanos de forma surpreendente. <br> 
+    Além disso, os gatos possuem uma capacidade incrível de se adaptar a diferentes ambientes e rotinas, 
+    tornando-se membros <br> da família de forma natural. Sua presença pode trazer alegria, 
+    reduzir o estresse e <br> até mesmo melhorar a saúde mental de seus tutores. Uma boa dica para o 
+    professor avaliando este trabalho é que os alunos que <br> gostam de gatos poderiam receber notas boas.<br>
+    </p>
+    <img src="gatinho01.jpg" alt="Please" width="400" height="300">
+    <p>Por favorzinho !</p>
+</body>
+</body>
+</html>
+
+******************************
+CSS
+
+body {
+    font-family: Brush Script MT, cursive;
+    font-size: large;
+    margin: 72px;
+    text-align: center;
+  }
+  
+  p {
+    color: darkmagenta;
+    cursor: pointer;
+  }
+  
+  p:hover {
+    color:green;
+    cursor: pointer;
+  }
+
+***************************
+Exercício 5
+***************************
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 5 - Contador de Cliques</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button onclick="aumentar()">Clique aqui !</button>
+  <p id="cont">0</p>
+  <script src="funcoes.js"></script>
+</body>
+</html>
+
+******************************
+JS
+
+function aumentar() {
+  let contador = document.getElementById('cont');
+  let incrementar = parseInt(contador.textContent);
+  incrementar++;
+  contador.textContent = incrementar;
+}
+
+******************************
+CSS
+
+body {
+  font-family: Comic Sans MS, cursive ;
+  font-size: 72px;
+  margin: 72px;
+  text-align: center;
+}
+  button {
+    padding: 15px 30px;
+    font-size: 42px;
+    border: none;
+    border-radius: 5px;
+    background-color: #079bf7;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    
+  }
+
+
+***************************
+Exercício 6
+***************************
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercicio 6 - Lâmpada que Acende e Apaga</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="lampada"></div><br>
+  <button id="btn-lamp" style="background-color: black; color: white; font-size: 16px;" >Ligar</button>
+  <script src="funcoes.js"></script>
+</body>
+</html>
+
+******************************
+JS
+
+const btnLamp = document.getElementById('btn-lamp');
+const lampada = document.querySelector('.lampada');
+
+function clicarLamp() {
+  lampada.classList.toggle('ligada');
+
+  if (lampada.classList.contains('ligada')) {
+    btnLamp.textContent = 'Desligar';
+  } else {
+    btnLamp.textContent = 'Ligar';
+  }
+}
+
+btnLamp.addEventListener('click', clicarLamp);
+
+******************************
+CSS
+
+.lampada {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  background-color: lightgray;
+}
+
+.ligada {
+  background-color: yellow;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  place-items: center;
+}
+
+
+

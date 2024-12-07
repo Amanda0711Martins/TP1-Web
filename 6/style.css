@@ -1,0 +1,16 @@
+.lampada {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  background-color: lightgray;
+}
+
+.ligada {
+  background-color: yellow;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  place-items: center;
+}
